@@ -29,7 +29,7 @@ user_id = 'user_id_value'  # Replace with actual user ID
 item_id = 'item_id_value'  # Replace with actual item ID
 quantity = 1  # Quantity of the item
 product_name = 'Example Product Name'
-price = 19.99  # Price of the item
+price = "19.99"  # Price of the item
 added_on = datetime.utcnow().isoformat()  # Timestamp when the item is added
 
 # Add the item to the ShoppingCart table

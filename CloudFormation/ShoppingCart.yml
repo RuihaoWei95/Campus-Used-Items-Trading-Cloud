@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A template to create a DynamoDB table for a shopping cart.
+
+Resources:
+  ShoppingCartTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ShoppingCart
+      AttributeDefinitions:
+        - AttributeName: UserID
+          AttributeType: S
+        - AttributeName: ItemID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: UserID
+          KeyType: HASH
+        - AttributeName: ItemID
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+        - Key: Name
+          Value: ShoppingCartTable

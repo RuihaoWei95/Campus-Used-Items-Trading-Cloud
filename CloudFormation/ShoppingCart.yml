@@ -1,22 +1,50 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: A template to create a DynamoDB table for a shopping cart.
+Description: '创建 DynamoDB 表：用户、产品和购物车'
 
 Resources:
-  ShoppingCartTable:
-    Type: AWS::DynamoDB::Table
+  UsersTable:
+    Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: ShoppingCart
+      TableName: Users
       AttributeDefinitions:
         - AttributeName: UserID
-          AttributeType: S
-        - AttributeName: ItemID
           AttributeType: S
       KeySchema:
         - AttributeName: UserID
           KeyType: HASH
-        - AttributeName: ItemID
-          KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
-      Tags:
-        - Key: Name
-          Value: ShoppingCartTable
+
+  ProductsTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: Products
+      AttributeDefinitions:
+        - AttributeName: ProductID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: ProductID
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  CartsTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: Carts
+      AttributeDefinitions:
+        - AttributeName: CartID
+          AttributeType: S
+        - AttributeName: ProductID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: CartID
+          KeyType: HASH
+        - AttributeName: ProductID
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: UserIDIndex
+          KeySchema:
+            - AttributeName: UserID
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      BillingMode: PAY_PER_REQUEST

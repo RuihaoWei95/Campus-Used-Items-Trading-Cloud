@@ -40,11 +40,4 @@ Resources:
           KeyType: HASH
         - AttributeName: ProductID
           KeyType: RANGE
-      GlobalSecondaryIndexes:
-        - IndexName: UserIDIndex
-          KeySchema:
-            - AttributeName: UserID
-              KeyType: HASH
-          Projection:
-            ProjectionType: ALL
       BillingMode: PAY_PER_REQUEST

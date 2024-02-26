@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: '创建 DynamoDB 表：用户、产品和购物车'
+Description: 'Create dynamoDB table for users, products, carts'
 
 Resources:
   UsersTable:

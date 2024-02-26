@@ -7,8 +7,8 @@ dynamodb = boto3.resource('dynamodb')
 def seed_users_table():
     table = dynamodb.Table('Users')
     users = [
-        {'UserID': 'user1', 'Name': 'John Doe', 'Email': 'john.doe@example.com'},
-        {'UserID': 'user2', 'Name': 'Jane Doe', 'Email': 'jane.doe@example.com'},
+        {'UserID': 'user1', 'Name': 'user1', 'Email': 'user1@example.com'},
+        {'UserID': 'user2', 'Name': 'user2', 'Email': 'user2@example.com'},
         # 可以在这里添加更多用户
     ]
     for user in users:

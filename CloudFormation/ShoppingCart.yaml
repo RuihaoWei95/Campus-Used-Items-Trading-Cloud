@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Create dynamoDB table for users, products, carts'
+Description: '创建 DynamoDB 表：用户、产品和购物车'
 
 Resources:
   UsersTable:
@@ -35,7 +35,7 @@ Resources:
           AttributeType: S
         - AttributeName: ProductID
           AttributeType: S
-	- AttributeName: UserID
+        - AttributeName: UserID
 	  AttributeType: S
       KeySchema:
         - AttributeName: CartID
@@ -50,3 +50,4 @@ Resources:
           Projection:
             ProjectionType: ALL
       BillingMode: PAY_PER_REQUEST
+

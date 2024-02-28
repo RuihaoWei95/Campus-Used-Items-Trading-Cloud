@@ -36,7 +36,7 @@ Resources:
         - AttributeName: ProductID
           AttributeType: S
         - AttributeName: UserID
-	        AttributeType: S
+          AttributeType: S
       KeySchema:
         - AttributeName: CartID
           KeyType: HASH

@@ -37,8 +37,8 @@ def seed_products_table():
 def seed_carts_table():
     table = dynamodb.Table('Carts')
     cart_items = [
-        {'CartID': 'cart1', 'UserID': 'user1'},
-        {'CartID': 'cart2', 'UserID': 'user2'},
+        {'UserID': 'user1'},
+        {'UserID': 'user2'},
 
     ]
     for item in cart_items:

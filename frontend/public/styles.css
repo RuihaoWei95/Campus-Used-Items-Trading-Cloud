@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    background: #eee;
+    padding: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/binding-dark.png");
+}
+
+#brand_name:hover{
+    color: #ffbf00;
+}
+
+#hover:hover{
+    color: #ffbf00;
+
+}
+#brand_name{
+    color: red;
+}
+#cart{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+footer{
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    height: 0.7rem;
+    margin-bottom: 15px;
+}
+
+footer p{
+    color: #3C4048;
+}
+
+.item-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+  .card {
+    text-align: left;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    padding: 1em;
+    box-shadow: rgba(129, 96, 96, 0.2) 0px 2px 8px 0px;
+  }
+
+  .mainContainer {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: bolder;
+    align-items: center;
+    justify-content: center;
+  }
+  
+ 
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .inputContainer > .errorLabel {
+    color: red;
+    font-size: 18px;
+  }
+  
+  .inputBox {
+    height: 48px;
+    width: 400px;
+    font-size: large;
+    border-radius: 8px;
+    border: 1px solid rgb(128, 128, 128);
+    padding-left: 8px;
+  }
+
+  input[type='button'] {
+    border: none;
+    background: cornflowerblue;
+    color: white;
+    padding: 12px 24px;
+    margin: 8px;
+    font-size: 24px;
+    border-radius: 8px;
+    cursor: pointer;
+  }

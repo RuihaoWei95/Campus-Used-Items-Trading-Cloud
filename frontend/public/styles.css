@@ -48,9 +48,10 @@ footer p{
 
 .item-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
     gap: 2em;
+    margin-left: 6em;
   }
   .card {
     text-align: left;

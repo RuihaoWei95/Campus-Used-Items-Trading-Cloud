@@ -55,7 +55,7 @@ function Login() {
       }
       // Handle your login success scenario, e.g., save tokens, redirect, etc.
       console.log('Login Successful:', data);
-      navigate('/'); // Use navigate to redirect to home page
+      navigate('/home'); // Use navigate to redirect to home page
     } catch (error) {
       setError('Login failed. Please check your credentials.');
       console.error('Error during login:', error);

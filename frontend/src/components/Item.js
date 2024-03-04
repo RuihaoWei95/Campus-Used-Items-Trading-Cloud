@@ -38,7 +38,7 @@ function Item() {
     return (
         <div>
             <div  className={'titleContainer'}>
-				Wanna to create an item ? <Link to="/createitem"> Creat Item </Link>
+				Wanna to create an item ? <Link to="/createitem"> Creat An Item </Link>
 			</div>
             <div className='item-container'>
                 {data.map(item => (

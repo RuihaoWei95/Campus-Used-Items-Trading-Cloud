@@ -7,7 +7,7 @@ function Header(){
             <div>
                 <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
                 <div className="container-fluid">
-                    <Link id="brand_name" className="navbar-brand" to="/">Home</Link>
+                    <Link id="brand_name" className="navbar-brand" to="/home">Home</Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">

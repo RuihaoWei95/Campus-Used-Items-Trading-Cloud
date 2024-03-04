@@ -27,7 +27,7 @@ export default function Signup() {
 
       const data = await response.json();
       console.log(data)
-      if (data.statusCode == 200) {
+      if (data.statusCode === 200) {
         console.log("Signup successful");
         navigate('/'); // Use navigate to redirect to home page
       } else {

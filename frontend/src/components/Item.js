@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Item() {
     const [data, setData] = useState([]);
+    const navigate = useNavigate(); // Initialize useNavigate
 
 
     useEffect(() => {
@@ -35,9 +37,9 @@ function Item() {
 
     return (
         <div>
-            <div className={'titleContainer'}>
-                <div>Welcome to Campus Used Items Trading Center!</div>
-            </div>
+            <div  className={'titleContainer'}>
+				Wanna to create an item ? <Link to="/createitem"> Creat Item </Link>
+			</div>
             <div className='item-container'>
                 {data.map(item => (
                     <li key={item.ProductID}>

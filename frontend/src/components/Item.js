@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-function Home() {
+function Item() {
     const [data, setData] = useState([]);
 
 
@@ -45,10 +45,11 @@ function Home() {
                         
                         <div className='card'>
                             <h3> Name: {item.Name}</h3> <br /> 
+                            <p>ProductID: {item.ProductID}</p> <br />
                             <p>Description: {item.Description}</p> <br />
                             <p> $: {item.Price}</p><br />
                             <div >
-                                <input type="button" value={'Add to Cart'} />
+                                <input type="button" value={'Delete'} />
                             </div>
                             <br />
                             
@@ -65,4 +66,4 @@ function Home() {
       
 }
 
-export default Home;
+export default Item;

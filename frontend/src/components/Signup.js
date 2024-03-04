@@ -39,39 +39,43 @@ export default function Signup() {
   };
 
   return (
-    <div className="wrapper signUp">
+    <div className='mainContainer'>
       <div className="form">
-        <div className="heading">CREATE AN ACCOUNT</div>
+        <div className={'titleContainer'}>CREATE AN ACCOUNT</div>
+        <br />
         <form>
-          <div>
-            <label htmlFor="name">Name</label>
+          <div className='inputContainer'>
             <input
                 type="text"
                 id="username"
                 placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                className='inputBox'
             />
+            <br />
           </div>
-          <div>
-            <label htmlFor="name">E-Mail</label>
+          <div className='inputContainer'>
             <input
                 type="text"
                 id="email" // Fix the id to match the label
                 placeholder="Enter your mail"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className='inputBox'
             />
+            <br />
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
+          <div  className='inputContainer'>
             <input
                 type="password"
                 id="password"
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className='inputBox'
             />
+            <br />
           </div>
           <div className='inputButton'>
             <input className={'inputButton'} type="button" onClick={handleSignUp} value={'SignUp'} />

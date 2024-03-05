@@ -1,21 +1,45 @@
 import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 
-function Cart() {
+function Home() {
     const [data, setData] = useState([]);
+    
 
+    const checkout = async () => {
+        try{
+            const userId=Cookies.get('userId');
+            console.log(userId);
+            const response = await fetch('https://akw32cdnu2.execute-api.us-west-1.amazonaws.com/beta/checkout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "operation":"checkout",
+                    "userId":userId,
+                })
+            })
+            const data = await response.json();
+            console.log(data)
+        }catch (err) {
+            console.error('Error fetching data: ', err);
+        }
+    }
 
     useEffect(() => {
+        const userId=Cookies.get('userId');
         // Example function to fetch data
         const fetchData = async () => {
             try {
-                const response = await fetch('https://akw32cdnu2.execute-api.us-west-1.amazonaws.com/beta/query', {
+                const response = await fetch('https://akw32cdnu2.execute-api.us-west-1.amazonaws.com/beta/show_cart', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        'operation': 'query'
+                        'operation': 'show_cart',
+                        "userId":userId
                     })
                 })
 
@@ -41,12 +65,9 @@ function Cart() {
                         {/*<p>{JSON.stringify(item, null, 2)}</p> */}
                         
                         <div className='card'>
-                            <h3> Name: {item.Name}</h3> <br /> 
-                            <p>Description: {item.Description}</p> <br />
-                            <p> $: {item.Price}</p><br />
-                            <div >
-                                <input type="button" value={'Remove'} />
-                            </div>
+                            <h3> Name: {item.ProductID}</h3> <br /> 
+                            <p> $: {item.TotalPrice}</p><br />
+                            <p> quantity: {item.Quantity}</p><br />
                             <br />
                             
                         </div>
@@ -54,7 +75,9 @@ function Cart() {
                     </li>
                 ))}
             </div>
-            
+            <div >
+                <input type="button" value={'CheckOut'} onClick={()=>checkout()}/>
+            </div>
 
       </div>
 
@@ -62,4 +85,4 @@ function Cart() {
       
 }
 
-export default Cart;
+export default Home;

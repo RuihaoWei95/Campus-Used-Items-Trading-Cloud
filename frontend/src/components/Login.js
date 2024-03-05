@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -55,6 +56,8 @@ function Login() {
       }
       // Handle your login success scenario, e.g., save tokens, redirect, etc.
       console.log('Login Successful:', data);
+      Cookies.set('userId', username, { expires: 7, path: '/' });
+      console.log(Cookies.get('userId'))
       navigate('/home'); // Use navigate to redirect to home page
     } catch (error) {
       setError('Login failed. Please check your credentials.');

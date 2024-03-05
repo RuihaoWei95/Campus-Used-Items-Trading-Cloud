@@ -1,31 +1,46 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import Cookies from 'js-cookie';
 
 export default function CreatItem() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState(""); // Added state for email
-  const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
   const navigate = useNavigate(); // Initialize useNavigate
 
+  function generateUID() {
+    const timestamp = Date.now(); // Gets the current time in milliseconds since the UNIX epoch
+    const randomValue = Math.random().toString(36).substring(2, 15); // Generates a random string
+    return `uid_${timestamp}_${randomValue}`;
+  }
 
   const handleCreateItem = async (e) => {
     e.preventDefault();
-    const backendUrl = "https://akw32cdnu2.execute-api.us-west-1.amazonaws.com/beta/register";
+    const userId=Cookies.get('userId');
+    console.log(userId);
+    const backendUrl = "https://akw32cdnu2.execute-api.us-west-1.amazonaws.com/beta/create";
     const CreateItemData = {
-      name,
-      description,
-      price,
-      quantity
+      "Name":name,
+      "Description":description,
+      "Price":price,
+      "Quantity":quantity,
     };
+    CreateItemData.SellerID=userId;
+    CreateItemData.ProductID=generateUID();
+    console.log(CreateItemData);
     try {
+
       const response = await fetch(backendUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(CreateItemData),
+        body: {
+          "operation":"create",
+          "product":CreateItemData
+        },
       });
 
       const data = await response.json();

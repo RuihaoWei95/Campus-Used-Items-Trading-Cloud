@@ -29,7 +29,7 @@ export default function Signup() {
       console.log(data)
       if (data.statusCode === 200) {
         console.log("Signup successful");
-        navigate('/'); // Use navigate to redirect to home page
+        navigate('/login'); // Use navigate to redirect to home page
       } else {
         console.error("Signup failed");
       }

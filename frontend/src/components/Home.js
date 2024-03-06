@@ -6,6 +6,7 @@ function Home() {
     const [data, setData] = useState([]);
     
 
+
     const addToCart = async (productId) => {
         try{
             const userId=Cookies.get('userId');
@@ -25,6 +26,7 @@ function Home() {
             })
             const data = await response.json();
             console.log(data)
+            alert("Product added to cart successfully!")
         }catch (err) {
             console.error('Error fetching data: ', err);
         }
@@ -54,6 +56,7 @@ function Home() {
             
         };
 
+        
         fetchData();
         console.log(data)
     }, []);

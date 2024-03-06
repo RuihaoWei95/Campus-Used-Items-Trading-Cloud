@@ -21,14 +21,15 @@ export default function CreatItem() {
     const userId=Cookies.get('userId');
     console.log(userId);
     const backendUrl = "https://akw32cdnu2.execute-api.us-west-1.amazonaws.com/beta/create";
+    const productID = generateUID();
     const CreateItemData = {
       "Name":name,
       "Description":description,
       "Price":price,
       "Quantity":quantity,
+      "SellerID": userId,
+      "ProductID": productID
     };
-    CreateItemData.SellerID=userId;
-    CreateItemData.ProductID=generateUID();
     console.log(CreateItemData);
     try {
 
@@ -37,17 +38,17 @@ export default function CreatItem() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
           "operation":"create",
           "product":CreateItemData
-        },
+        }),
       });
 
       const data = await response.json();
       console.log(data)
       if (data.statusCode === 200) {
         console.log("Creat Item successful");
-        navigate('/'); // Use navigate to redirect to home page
+        navigate('/item'); // Use navigate to redirect to home page
       } else {
         console.error("Creat Item failed");
       }

@@ -65,7 +65,7 @@ function Home() {
                         {/*<p>{JSON.stringify(item, null, 2)}</p> */}
                         
                         <div className='card'>
-                            <h3> Name: {item.ProductID}</h3> <br /> 
+                            <h3> Name: {item.ProductName}</h3> <br /> 
                             <p> $: {item.TotalPrice}</p><br />
                             <p> quantity: {item.Quantity}</p><br />
                             <br />

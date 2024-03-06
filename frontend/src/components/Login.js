@@ -11,6 +11,8 @@ function Login() {
   const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate(); // Initialize useNavigate
 
+
+
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
 
@@ -50,7 +52,7 @@ function Login() {
 
 
       const data = await response.json();
-      if (data.statusCode == 401) {
+      if (data.statusCode === 401) {
         alert("Login failed! Please check your credentials.")
         throw new Error(`HTTP error! status: 401`);
       }
@@ -58,7 +60,9 @@ function Login() {
       console.log('Login Successful:', data);
       Cookies.set('userId', username, { expires: 7, path: '/' });
       console.log(Cookies.get('userId'))
+      alert("Login successfully!");
       navigate('/home'); // Use navigate to redirect to home page
+      
     } catch (error) {
       setError('Login failed. Please check your credentials.');
       console.error('Error during login:', error);
@@ -66,6 +70,7 @@ function Login() {
 
 
   };
+
 
   return (
     <div className='mainContainer'>
@@ -101,6 +106,7 @@ function Login() {
         <div className='inputButton'>
             <input className={'inputButton'} type="button" onClick={handleLogin} value={'Log in'} />
         </div>
+
         <div>
 					Don't have an account ? <Link to="/signup"> Sign Up </Link>
 				</div>

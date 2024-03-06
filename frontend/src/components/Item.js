@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Home() {
     const [data, setData] = useState([]);
-    const navigate = useNavigate(); // Initialize useNavigate
+   
 
     const unlist = async (productId) => {
         try{
@@ -25,6 +25,8 @@ function Home() {
             })
             const data = await response.json();
             console.log(data)
+            alert("Product unlisted successfully!")
+            window.location.reload()
         }catch (err) {
             console.error('Error fetching data: ', err);
         }
@@ -61,31 +63,31 @@ function Home() {
     }, []);
 
     return (
-        <div>
+
+        <div >
+            <div className={'titleContainer'}>
+                    Wanna to sell something ? <Link to="/createitem"> Create An Item </Link>
+            </div>
+            <br />
             <div className='item-container'>
-                <div>
-                        Wanna to create an item ? <Link to="/createitem"> Create An Item </Link>
-                </div>
                 {data.map(item => ( item.Quantity>0 && 
                     (<li key={item.ProductID}>
                         {/*<p>{JSON.stringify(item, null, 2)}</p> */}
                         
                         <div className='card'>
-                            <h3> Name: {item.ProductID}</h3> <br /> 
-                            <p> $: {item.TotalPrice}</p><br />
+                            <h3> Name: {item.Name}</h3> <br /> 
+                            <p> $: {item.Price}</p><br />
                             <p> quantity: {item.Quantity}</p><br />
                             <br />
                             <div >
                                 <input type="button" value={'Unlist'} onClick={()=>unlist(item.ProductID)}/>
                             </div>   
                         </div>
-
                     </li>)
                 ))}
             </div>
-            
+        </div>
 
-      </div>
 
       );
       

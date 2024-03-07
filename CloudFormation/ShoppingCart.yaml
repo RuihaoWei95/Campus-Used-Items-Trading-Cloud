@@ -33,8 +33,12 @@ Resources:
       AttributeDefinitions:
         - AttributeName: UserID
           AttributeType: S
+        - AttributeName: ProductID
+          AttributeType: S
       KeySchema:
         - AttributeName: UserID
           KeyType: HASH
+        - AttributeName: ProductID
+          KeyType: RANGE
       BillingMode: PAY_PER_REQUEST
 

@@ -1,5 +1,5 @@
 # Use an official Node runtime as a parent image
-FROM node:20-slim
+FROM node:20
 
 # Set the working directory in the container
 WORKDIR /app
@@ -20,4 +20,4 @@ RUN npm run build
 RUN npm install -g serve
 
 # Run serve when the container launches
-CMD ["serve", "-s", "build", "-l", "80"]
+CMD ["npm", "start"]

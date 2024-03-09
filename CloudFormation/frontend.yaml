@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cse241
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cse241
+  template:
+    metadata:
+      labels:
+        app: cse241
+    spec:
+      containers:
+      - name: cse241
+        image: 471112857995.dkr.ecr.us-west-1.amazonaws.com/cse241:latest
+        ports:
+        - containerPort: 80

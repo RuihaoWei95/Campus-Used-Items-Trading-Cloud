@@ -48,6 +48,7 @@ export default function CreatItem() {
       console.log(data)
       if (data.statusCode === 200) {
         console.log("Creat Item successful");
+        alert("Create Item successfully!");
         navigate('/item'); // Use navigate to redirect to home page
       } else {
         console.error("Creat Item failed");
@@ -63,7 +64,8 @@ export default function CreatItem() {
         <div className={'titleContainer'}>CREATE AN Item</div>
         <br />
         <form>
-          <div className='inputContainer'>
+          <div >
+            <span className='inputHint'>Enter  the  item  name: </span>
             <input
                 type="text"
                 id="name"
@@ -74,7 +76,8 @@ export default function CreatItem() {
             />
             <br />
           </div>
-          <div className='inputContainer'>
+          <div >
+            <span className='inputHint'>Enter the item description: </span>
             <input
                 type="text"
                 id="description" // Fix the id to match the label
@@ -85,18 +88,20 @@ export default function CreatItem() {
             />
             <br />
           </div>
-          <div className='inputContainer'>
+          <div >
+            <span  className='inputHint'>Enter  the  item  price: </span>
             <input
                 type="text"
                 id="price" // Fix the id to match the label
-                placeholder="Enter the item price"
+                placeholder="Enter   the   item   price:"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 className='inputBox'
             />
             <br />
           </div>
-          <div className='inputContainer'>
+          <div >
+            <span  className='inputHint'>Enter the item quantity: </span>
             <input
                 type="text"
                 id="quantity" // Fix the id to match the label

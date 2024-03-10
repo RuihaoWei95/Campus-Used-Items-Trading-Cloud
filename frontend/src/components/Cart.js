@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Cookies from 'js-cookie';
 
 
 function Home() {
     const [data, setData] = useState([]);
+    const navigate = useNavigate(); // Initialize useNavigate
     
 
     const checkout = async () => {
@@ -22,6 +24,7 @@ function Home() {
             })
             const data = await response.json();
             console.log(data)
+            navigate('/order'); // Use navigate to redirect to login page
         }catch (err) {
             console.error('Error fetching data: ', err);
         }

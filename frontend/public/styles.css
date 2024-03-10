@@ -111,3 +111,12 @@ footer p{
     cursor: pointer;
   }
 
+  .input-label {
+    margin-right: 8px; /* Optional: adds some space between the label and the input */
+  }
+
+.inputHint{
+  font-size: 30px;
+  margin-right: 8px;
+
+}

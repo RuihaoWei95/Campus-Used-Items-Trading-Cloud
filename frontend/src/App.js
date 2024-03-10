@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Cart from "./components/Cart";
 import Item from "./components/Item"
 import CreatItem from "./components/CreateItem";
+import Order from "./components/Order";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './amplify-config';
 
@@ -24,6 +25,8 @@ function App() {
           <Route exact path="/cart" element={<Cart />}></Route>
           <Route exact path="/item" element={<Item />}></Route>
           <Route exact path="/createitem" element={<CreatItem />}></Route>
+          <Route exact path="/order" element={<Order />}></Route>
+          
         </Routes>
       </div>
     <Footer/>

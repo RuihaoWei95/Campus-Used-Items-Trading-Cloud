@@ -76,6 +76,7 @@ function Home() {
                         
                         <div className='card'>
                             <h3> Name: {item.Name}</h3> <br /> 
+                            <p>Description: {item.Description}</p> <br />
                             <p> $: {item.Price}</p><br />
                             <p> quantity: {item.Quantity}</p><br />
                             <br />
